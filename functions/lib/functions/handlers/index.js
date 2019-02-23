@@ -12,14 +12,13 @@ exports.Handlers = {
         return errorResponse;
     },
     success: (message, body, code) => {
-        const successResponse = {
+        // console.log(successResponse)
+        return {
             status: 'success',
             message,
             body,
             code
         };
-        // console.log(successResponse)
-        return successResponse;
     },
     triggerAuthorizationError: () => {
         return exports.Handlers.error('Authorization Error', {
