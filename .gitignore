@@ -66,3 +66,13 @@ node_modules/
 
 # js.map
 .map
+
+## Compiled JavaScript files
+lib
+**/*.js
+**/*.js.map
+
+# Typescript v1 declaration files
+typings/
+
+node_modules/
