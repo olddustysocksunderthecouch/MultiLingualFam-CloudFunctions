@@ -8,5 +8,10 @@ export const Validators = {
     const hasType = typeof variable === type
     if (!hasType) console.log(`Has type '${type}'?: ${hasType}, it is ${typeof variable}`)
     return hasType
-  }
+  },
+  minLength: (variable: string | Array<any>, length: number): boolean => {
+    const hasMinLength: boolean = variable.length >= length
+    if (!hasMinLength) console.log(`Has a min length of ${length}?: ${hasMinLength}`)
+    return hasMinLength
+  },
 }

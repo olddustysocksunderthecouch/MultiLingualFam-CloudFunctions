@@ -2,17 +2,18 @@ import { Handlers } from './handlers'
 import { Validators } from './validators'
 import { Location } from '../interfaces/location.model'
 import { Restaurant } from '../interfaces/restaurant.model'
-
-
 import { McDonaldsRestaurants } from '../data/mcdonaldsRestaurants'
+
 import { CalculateDistance } from './utils/distanceCalculator'
+import { NotificationsService } from './sendNotification'
 
 export default (functions, admin) => (data, context) => {
 
     // Uncomment this code if your app has authentication
-    // if (!context.auth) {
-    // 	return Handlers.triggerAuthorizationError()
-    // }
+    if (!context.auth) {
+    	return Handlers.triggerAuthorizationError()
+    }
+    const { uid } = context.auth
 
     const {exists} = Validators
 
@@ -44,8 +45,9 @@ export default (functions, admin) => (data, context) => {
                 }
             }).sort((current, next) => current.distance - next.distance)[0]
         }
-        console.log('closest', closestLocation(data.latitude,data.longitude, McDonaldsRestaurants))
 
+        console.log('closest', closestLocation(data.latitude,data.longitude, McDonaldsRestaurants))
+        NotificationsService.sendNotification(admin, uid)
         const previousLocation: Location = result.val() ? {
             latitude: result.val().latitude,
             longitude: result.val().longitude
