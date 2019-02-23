@@ -25,7 +25,7 @@ exports.default = (functions, admin) => (data, context) => {
         const closestLocation = (latitude, longitude, mcDonaldsRestaurants) => {
             return mcDonaldsRestaurants.map(restaurant => {
                 return Object.assign({}, restaurant, { distance: distanceCalculator_1.CalculateDistance(latitude, longitude, restaurant.location[0], restaurant.location[1]) });
-            }).sort((current, next) => current.distance - next.distance);
+            }).sort((current, next) => current.distance - next.distance)[0];
         };
         console.log('closest', closestLocation(data.latitude, data.longitude, mcdonaldsRestaurants_1.McDonaldsRestaurants));
         const previousLocation = result.val() ? {

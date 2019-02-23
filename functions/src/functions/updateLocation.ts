@@ -31,7 +31,7 @@ export default (functions, admin) => (data, context) => {
           }, 500)
         }
 
-        const closestLocation = (latitude, longitude, mcDonaldsRestaurants): Restaurant[] => {
+        const closestLocation = (latitude, longitude, mcDonaldsRestaurants): Restaurant => {
             return mcDonaldsRestaurants.map(restaurant => {
                 return {
                     ...restaurant,
@@ -42,7 +42,7 @@ export default (functions, admin) => (data, context) => {
                         restaurant.location[1]
                     )
                 }
-            }).sort((current, next) => current.distance - next.distance)
+            }).sort((current, next) => current.distance - next.distance)[0]
         }
         console.log('closest', closestLocation(data.latitude,data.longitude, McDonaldsRestaurants))
 
