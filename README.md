@@ -30,14 +30,14 @@ Since a typed languages generally don't mess your sanity as much as others we de
 Data for the locations at which, the Cloud Function (**CF**) will send a notification to the user is store in the CF 
 itself for now as there are only a few points. 
 
-_Open for suggestions on what else to include in this section_
+_Open for suggestions on what else to include in this section or any other section for that matter_
 
 # Setup
 ### General
  1. Create a new Firebase Project using the [Firebase Console](https://console.firebase.google.com).
  1. Enable **Email Provider** in the [Auth section](https://console.firebase.google.com/project/_/authentication/providers)
  
- ### Setup Specifically for Cloud Functions
+ ### Cloud Functions
  See the accompanying [Android Repo](https://github.com/olddustysocksunderthecouch/LocationForegroundServiceSample) 
  for other setup instructions
  1. Clone or download this repo and open the directory in a terminal/command line of your choice.
@@ -51,12 +51,20 @@ _Open for suggestions on what else to include in this section_
 1. Call as soon as the Android App installed and opened, you should see it trigger the addToken function in the CF logs section.
 
 # Want to help out?
-### Values 
-- This project will always be open source 
-- We will never store a long term history of user's location data 
+### Principal/Values
+- This project will always be open source
+- We will never store a long term history of user's location data
 - We will never sell user location data or any other data for that matter
+- If you contribute to the project you will be acknowledged for your contribution
 
-### I'm cool with that, what's next?
-Send me a mail, adrian.bunge@gmail.com and I'll get in touch with you ASAP.
+### Questions / Features You could help out with
+- How to we keep location tracking accurate while having a limited impact on battery?
+- Strategy/logic around when notifications are sent to users?
+- How do we implement language preferences?
+- Security and Storage Rules
+- **Translations** and word/phrase suggestions
+- Design - we need a better logo as well as some UX work
+- Bring in **your own ideas** and implement them! 
 
-
+### I'm in, what's next?
+Fill in [this super quick Google Form](https://goo.gl/forms/TIE4wfNlaMAeNOwp2) and I'll get in touch with you ASAP.
